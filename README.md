@@ -1,266 +1,298 @@
-# 🧠 Deep Learning Assignments
+# 🧠 Deep Learning Laboratory Assignments
 
 <p align="center">
 
-### Practical Implementation of Deep Learning Concepts
+<img src="https://img.shields.io/badge/Domain-Deep%20Learning-blue?style=for-the-badge">
+<img src="https://img.shields.io/badge/Language-Python-yellow?style=for-the-badge&logo=python">
+<img src="https://img.shields.io/badge/Framework-TensorFlow-orange?style=for-the-badge&logo=tensorflow">
+<img src="https://img.shields.io/badge/Environment-Jupyter%20Notebook-orange?style=for-the-badge&logo=jupyter">
 
-This repository contains the practical assignments completed as part of the **Deep Learning** course.
-The work covers fundamental concepts, data preprocessing, neural networks, model training, evaluation, visualization, and **Convolutional Neural Networks (CNNs)**.
+</p>
+
+<p align="center">
+
+<strong>TY Artificial Intelligence Engineering</strong><br>
+Deep Learning Practical Assignments and Implementations
 
 </p>
 
 ---
 
-## 📌 About This Repository
+## 📖 About
 
-The purpose of this repository is to document the practical implementation and understanding of important **Deep Learning concepts** through Python and Jupyter Notebook.
+This repository contains my **Deep Learning laboratory assignments**, practical implementations, reports, datasets, and model visualizations.
 
-Each laboratory assignment focuses on a different stage of the Deep Learning workflow, starting from understanding and preparing data and progressing toward building, training, evaluating, and visualizing neural network models.
+The assignments are organized to demonstrate the progression from **data preprocessing and analysis** to **neural network modelling, training, evaluation, and image classification using Convolutional Neural Networks (CNNs).**
 
-### 🔗 Repository
-
-**GitHub:**
-https://github.com/rushirathod22/Deep_Learning_Assignment
+The main objective is to understand both the **theoretical concepts and practical implementation** of Deep Learning models using Python.
 
 ---
 
-# 📚 Assignments Overview
+## 🎯 Objectives
 
-| Lab       | Main Topic                      | Dataset / Application                    | Important Concepts                                             | Visualization                                  |
-| --------- | ------------------------------- | ---------------------------------------- | -------------------------------------------------------------- | ---------------------------------------------- |
-| **LAB 1** | Deep Learning Fundamentals      | Practical dataset / basic implementation | Data handling, preprocessing, fundamental DL concepts          | Data/model visualizations                      |
-| **LAB 2** | Neural Network Classification   | Heart Disease Dataset                    | Data preprocessing, classification, ANN, training & evaluation | Performance visualization                      |
-| **LAB 3** | Deep Learning Model             | Model-based implementation               | Neural network architecture, training, prediction              | Model/output analysis                          |
-| **LAB 6** | CNN for Apple Disease Detection | Apple Disease Images                     | CNN, convolution, pooling, image classification                | Training curves, predictions, confusion matrix |
+Through these practical assignments, the following objectives are covered:
 
-> The repository is continuously updated as new Deep Learning laboratory assignments are completed.
+* Understand the fundamentals of Deep Learning.
+* Understand how Artificial Neural Networks learn from data.
+* Perform data preprocessing and exploratory analysis.
+* Build and train neural network models.
+* Understand forward propagation and backpropagation.
+* Apply activation functions and optimization techniques.
+* Evaluate trained models using suitable metrics.
+* Visualize datasets and model performance.
+* Understand Convolutional Neural Networks.
+* Apply CNNs to image classification.
+* Analyze predictions using confusion matrices and training curves.
 
 ---
 
-# 🧩 Deep Learning Workflow
+# 🗂️ Repository Structure
 
-The assignments follow the general Deep Learning pipeline:
-
-```mermaid
-flowchart TD
-    A[Raw Data] --> B[Data Preprocessing]
-    B --> C[Exploratory Data Analysis]
-    C --> D[Data Visualization]
-    D --> E[Train Test Split]
-    E --> F[Model Building]
-    F --> G[Model Training]
-    G --> H[Validation]
-    H --> I[Prediction]
-    I --> J[Model Evaluation]
-    J --> K[Visualization]
-    K --> L[Performance Analysis]
+```text
+Deep_Learning_Assignment/
+│
+├── 📁 LAB_1/
+│   ├── 📓 Assigment_1.ipynb
+│   └── 📄 34_Rushikesh_Rathod.pdf
+│
+├── 📁 LAB_2/
+│   ├── 📓 Lab_2.ipynb
+│   ├── 📊 heart.csv
+│   └── 📄 34_Rushikesh_Lab_2.docx
+│
+├── 📁 LAB_3/
+│   ├── 📓 Model.ipynb
+│   └── 📄 34_Rushikesh_Rathod_Lab_3.docx
+│
+├── 📁 LAB_6/
+│   ├── 📓 Lab4_CNN_Apple_Disease.ipynb
+│   ├── 🐍 lab4_cnn_apple_disease.py
+│   ├── 🖼️ sample_images.png
+│   ├── 📈 training_history.png
+│   ├── 📊 confusion_matrix.png
+│   └── 🔍 predictions.png
+│
+├── .gitignore
+└── README.md
 ```
 
 ---
 
-# 🔬 Concepts Covered
+# 🧭 Learning Roadmap
 
-## 1. Data Preprocessing
-
-Before training a Deep Learning model, the dataset needs to be prepared.
-
-Important preprocessing operations include:
-
-* Loading datasets
-* Handling missing values
-* Selecting features
-* Encoding categorical data
-* Feature scaling
-* Normalization
-* Train-test splitting
-* Preparing input and target variables
-
-### Why is preprocessing important?
-
-Good preprocessing helps the model learn meaningful patterns and improves training stability and performance.
-
----
-
-# 📊 Data Visualization
-
-Visualization is used throughout the assignments to understand the dataset and analyze model performance.
-
-Common visualizations include:
-
-* Distribution plots
-* Feature relationships
-* Class distribution
-* Training loss
-* Validation loss
-* Training accuracy
-* Validation accuracy
-* Prediction results
-* Confusion matrix
-* Sample images
-
-### Typical Deep Learning visualization workflow
+The practicals follow a progressive Deep Learning workflow:
 
 ```mermaid
 flowchart LR
-    A[Dataset] --> B[Explore Data]
-    B --> C[Visualize Features]
-    C --> D[Train Model]
-    D --> E[Collect Metrics]
-    E --> F[Plot Accuracy]
-    E --> G[Plot Loss]
-    D --> H[Generate Predictions]
-    H --> I[Confusion Matrix]
+
+A["📊 Data"] --> B["🧹 Preprocessing"]
+B --> C["🔎 Exploration"]
+C --> D["📈 Visualization"]
+D --> E["🧠 Model Building"]
+E --> F["🏋️ Training"]
+F --> G["✅ Validation"]
+G --> H["🔮 Prediction"]
+H --> I["📊 Evaluation"]
+I --> J["📈 Analysis"]
 ```
+
+This progression demonstrates how a Deep Learning problem moves from **raw data to a trained and evaluated model**.
 
 ---
 
-# ❤️ LAB 2: Heart Disease Classification
+# 📚 Laboratory Work
 
-## Dataset
+## 🔹 LAB 1 | Deep Learning Fundamentals
 
-LAB 2 uses the **Heart Disease dataset (`heart.csv`)** for classification.
+### Focus
 
-The notebook is accompanied by the dataset and practical documentation in the LAB_2 folder.
+Introduction to the basic concepts and workflow used in Deep Learning.
 
-## Concepts Used
+### Concepts
 
-* Data loading
-* Data preprocessing
+* Introduction to Deep Learning
+* Artificial Intelligence vs Machine Learning vs Deep Learning
+* Neural Networks
+* Data preparation
+* Model workflow
+* Basic data analysis
+* Visualization
+
+### Workflow
+
+```mermaid
+flowchart TD
+
+A["Raw Dataset"] --> B["Data Understanding"]
+B --> C["Preprocessing"]
+C --> D["Visualization"]
+D --> E["Model / Concept Implementation"]
+E --> F["Result Analysis"]
+```
+
+### Purpose
+
+This laboratory establishes the foundation required for understanding more advanced Deep Learning models.
+
+---
+
+# ❤️ LAB 2 | Heart Disease Classification
+
+### Dataset
+
+The laboratory uses a **Heart Disease dataset (`heart.csv`)** for classification.
+
+### Concepts Used
+
+* Dataset loading
 * Exploratory Data Analysis
-* Feature selection
-* Classification
-* Artificial Neural Network
+* Feature analysis
+* Data preprocessing
+* Feature scaling
+* Train-test split
+* Neural Network classification
 * Model training
 * Prediction
 * Model evaluation
-* Accuracy analysis
+* Visualization
 
-## Workflow
+### Deep Learning Pipeline
 
 ```mermaid
 flowchart TD
-    A[Heart Disease Dataset] --> B[Load Dataset]
-    B --> C[Explore Dataset]
-    C --> D[Preprocess Data]
-    D --> E[Select Features]
-    E --> F[Train Test Split]
-    F --> G[Build Neural Network]
-    G --> H[Train Model]
-    H --> I[Make Predictions]
-    I --> J[Evaluate Model]
-    J --> K[Visualize Results]
+
+A["❤️ Heart Disease Dataset"] 
+--> B["Data Exploration"]
+
+B --> C["Preprocessing"]
+
+C --> D["Feature Selection"]
+
+D --> E["Train / Test Split"]
+
+E --> F["Neural Network"]
+
+F --> G["Model Training"]
+
+G --> H["Prediction"]
+
+H --> I["Evaluation"]
+
+I --> J["Visualization"]
 ```
 
-### Objective
+### Why Visualization?
 
-The objective is to use patient-related features to train a neural network model capable of performing **heart disease classification**.
+Visualization helps understand:
+
+* Feature distributions
+* Class distribution
+* Relationships between variables
+* Model performance
+* Prediction results
 
 ---
 
-# 🧠 LAB 3: Deep Learning Model
+# 🧠 LAB 3 | Neural Network Model
 
-LAB 3 focuses on implementing and experimenting with a Deep Learning model using a Jupyter Notebook.
+### Focus
 
-## Concepts Used
+Implementation and understanding of a Deep Learning model using a neural network architecture.
 
-* Neural network architecture
-* Input and output layers
+### Concepts Used
+
+* Neural Network architecture
+* Input layer
 * Hidden layers
+* Output layer
+* Weights
+* Bias
 * Activation functions
+* Forward propagation
+* Loss calculation
+* Backpropagation
 * Model training
 * Prediction
-* Model evaluation
-* Deep Learning workflow
+* Evaluation
 
-## Neural Network Structure
+### Neural Network Architecture
 
 ```mermaid
 flowchart LR
-    A[Input Features] --> B[Input Layer]
-    B --> C[Hidden Layer 1]
-    C --> D[Hidden Layer 2]
-    D --> E[Output Layer]
-    E --> F[Prediction]
+
+A["Input Features"]
+--> B["Input Layer"]
+--> C["Hidden Layer 1"]
+--> D["Hidden Layer 2"]
+--> E["Output Layer"]
+--> F["Prediction"]
 ```
 
-### Basic Learning Process
+### Learning Process
 
 ```mermaid
 flowchart TD
-    A[Input Data] --> B[Forward Propagation]
-    B --> C[Prediction]
-    C --> D[Calculate Loss]
-    D --> E[Backpropagation]
-    E --> F[Update Weights]
-    F --> G{Training Complete?}
-    G -->|No| B
-    G -->|Yes| H[Final Model]
+
+A["Input Data"]
+--> B["Forward Propagation"]
+
+B --> C["Prediction"]
+
+C --> D["Calculate Loss"]
+
+D --> E["Backpropagation"]
+
+E --> F["Update Weights"]
+
+F --> G{"More Epochs?"}
+
+G -->|Yes| B
+G -->|No| H["Trained Model"]
 ```
 
----
-
-# 🍎 LAB 6: CNN Apple Disease Classification
-
-LAB 6 contains a practical implementation of a **Convolutional Neural Network (CNN)** for Apple Disease classification.
-
-The repository contains:
-
-* `Lab4_CNN_Apple_Disease.ipynb`
-* `lab4_cnn_apple_disease.py`
-* `sample_images.png`
-* `training_history.png`
-* `confusion_matrix.png`
-* `predictions.png`
-
-This makes LAB 6 the main **Computer Vision / CNN** assignment in the repository.
+The process demonstrates how a neural network gradually updates its parameters to reduce prediction error.
 
 ---
 
-## 🎯 Objective
+# 🍎 LAB 6 | CNN Based Apple Disease Classification
 
-The objective is to build a CNN model that can automatically learn visual features from apple leaf images and classify them according to disease categories.
+### Focus
 
----
+This laboratory applies a **Convolutional Neural Network (CNN)** to image classification for detecting/classifying apple leaf diseases.
 
-# 🧠 CNN Architecture
+### Files
 
-The CNN follows the general image-classification pipeline:
+| File                           | Purpose                          |
+| ------------------------------ | -------------------------------- |
+| `Lab4_CNN_Apple_Disease.ipynb` | Complete notebook implementation |
+| `lab4_cnn_apple_disease.py`    | Python implementation            |
+| `sample_images.png`            | Sample image visualization       |
+| `training_history.png`         | Training performance             |
+| `confusion_matrix.png`         | Classification evaluation        |
+| `predictions.png`              | Model predictions                |
 
-```mermaid
-flowchart TD
-    A[Input Image] --> B[Convolution]
-    B --> C[Activation Function]
-    C --> D[Pooling]
-    D --> E[Convolution]
-    E --> F[Activation Function]
-    F --> G[Pooling]
-    G --> H[Flatten]
-    H --> I[Dense Layer]
-    I --> J[Output Layer]
-    J --> K[Disease Prediction]
-```
+The current LAB 6 folder contains these CNN implementation and visualization artifacts.
 
 ---
 
-# 🔍 CNN Concepts Used
+## 🔬 CNN Concepts Used
 
 ### 1. Convolution
 
-Convolution layers extract important visual features from images such as:
+Extracts important visual features from images.
+
+Examples:
 
 * Edges
 * Textures
 * Shapes
 * Patterns
-* Disease-related visual characteristics
 
 ### 2. Activation Function
 
-Activation functions introduce non-linearity into the neural network.
+Introduces non-linearity into the network.
 
-A common activation function used in CNNs is:
-
-**ReLU**
+A commonly used activation is **ReLU**:
 
 ```text
 ReLU(x) = max(0, x)
@@ -268,360 +300,323 @@ ReLU(x) = max(0, x)
 
 ### 3. Pooling
 
-Pooling reduces the spatial dimensions of feature maps while retaining important information.
-
-Common example:
-
-**Max Pooling**
+Reduces the spatial size of feature maps while retaining important information.
 
 ### 4. Flattening
 
-The extracted feature maps are converted into a one-dimensional vector before being passed to dense layers.
+Converts extracted feature maps into a one-dimensional representation.
 
-### 5. Dense Layer
+### 5. Dense Layers
 
-Dense layers use the extracted features to perform classification.
+Use extracted features for final classification.
 
 ### 6. Output Layer
 
-The final layer produces the predicted disease class.
+Produces the final predicted class.
+
+---
+
+# 🧠 CNN Architecture
+
+```mermaid
+flowchart TD
+
+A["🍎 Input Image"]
+--> B["Image Preprocessing"]
+
+B --> C["Convolution Layer"]
+
+C --> D["ReLU"]
+
+D --> E["Pooling"]
+
+E --> F["Convolution Layer"]
+
+F --> G["ReLU"]
+
+G --> H["Pooling"]
+
+H --> I["Flatten"]
+
+I --> J["Dense Layer"]
+
+J --> K["Output Layer"]
+
+K --> L["🍎 Disease Prediction"]
+```
 
 ---
 
 # 📈 Model Training Visualization
 
-Training history is used to understand how the model performs during training.
+Training history is used to understand how the model learns over multiple epochs.
 
-The repository contains:
+### Metrics
 
-**`training_history.png`**
+* Training Accuracy
+* Validation Accuracy
+* Training Loss
+* Validation Loss
 
-Typical metrics include:
-
-* Training accuracy
-* Validation accuracy
-* Training loss
-* Validation loss
-
-### Training process
+### Training Concept
 
 ```mermaid
 flowchart LR
-    A[Training Images] --> B[CNN]
-    B --> C[Prediction]
-    C --> D[Loss]
-    D --> E[Backpropagation]
-    E --> F[Weight Update]
-    F --> B
-    B --> G[Validation]
-    G --> H[Training History]
+
+A["Training Images"]
+--> B["CNN"]
+
+B --> C["Prediction"]
+
+C --> D["Loss"]
+
+D --> E["Backpropagation"]
+
+E --> F["Weight Update"]
+
+F --> B
+
+B --> G["Validation"]
+
+G --> H["Training History"]
 ```
+
+### Training History
+
+![Training History](LAB_6/training_history.png)
 
 ---
 
 # 📊 Confusion Matrix
 
-The repository also contains:
+A confusion matrix is used to evaluate the classification performance of the CNN.
 
-**`confusion_matrix.png`**
+It helps identify:
 
-A confusion matrix helps analyze classification performance by showing:
+* Correct predictions
+* Incorrect predictions
+* Class-wise performance
+* Misclassification between classes
 
-* True Positive
-* True Negative
-* False Positive
-* False Negative
-
-For multi-class classification, it shows how samples from each class are predicted across all classes.
-
-```mermaid
-flowchart TD
-    A[Actual Class] --> B{CNN Prediction}
-    B --> C[Correct Prediction]
-    B --> D[Incorrect Prediction]
-    C --> E[True Classification]
-    D --> F[Misclassification]
-    E --> G[Confusion Matrix]
-    F --> G
-```
+![Confusion Matrix](LAB_6/confusion_matrix.png)
 
 ---
 
-# 🖼️ Image Prediction
+# 🔍 Prediction Visualization
 
-The repository includes:
+The prediction output provides a visual comparison between the input image and the model's predicted class.
 
-**`predictions.png`**
-
-This visualization can be used to inspect model predictions on sample images.
-
-The general process is:
-
-```mermaid
-flowchart LR
-    A[Input Leaf Image] --> B[Image Preprocessing]
-    B --> C[Trained CNN]
-    C --> D[Feature Extraction]
-    D --> E[Classification]
-    E --> F[Predicted Disease]
-```
+![Predictions](LAB_6/predictions.png)
 
 ---
 
 # 🖼️ Sample Images
 
-The repository contains:
+Sample images are included to understand the image data used by the CNN.
 
-**`sample_images.png`**
-
-Sample images provide a visual understanding of the image dataset and the classes used for training/testing.
+![Sample Images](LAB_6/sample_images.png)
 
 ---
 
-# 🛠️ Technologies Used
+# 📊 Role of Visualization
 
-| Technology             | Purpose                              |
-| ---------------------- | ------------------------------------ |
-| **Python**             | Programming language                 |
-| **Jupyter Notebook**   | Interactive experimentation          |
-| **NumPy**              | Numerical computation                |
-| **Pandas**             | Data manipulation                    |
-| **Matplotlib**         | Data and result visualization        |
-| **Scikit-learn**       | Data preprocessing and evaluation    |
-| **TensorFlow / Keras** | Deep Learning and CNN implementation |
+Visualization is an important part of these assignments because numerical metrics alone do not always provide enough understanding.
 
----
-
-# 📁 Repository Structure
-
-```text
-Deep_Learning_Assignment/
-│
-├── LAB_1/
-│   ├── Assigment_1.ipynb
-│   └── 34_Rushikesh_Rathod.pdf
-│
-├── LAB_2/
-│   ├── Lab_2.ipynb
-│   ├── heart.csv
-│   └── 34_Rushikesh_Lab_2.docx
-│
-├── Lab_3/
-│   ├── Model.ipynb
-│   └── 34_Rushikesh_Rathod_Lab_3.docx
-│
-├── LAB_6/
-│   ├── Lab4_CNN_Apple_Disease.ipynb
-│   ├── lab4_cnn_apple_disease.py
-│   ├── sample_images.png
-│   ├── training_history.png
-│   ├── confusion_matrix.png
-│   ├── predictions.png
-│   └── 34_Rushikesh_lab_6.docx
-│
-├── .gitignore
-└── README.md
-```
-
-The current repository structure includes these lab folders and the listed notebooks, datasets, documentation, and CNN visualization outputs.
+| Visualization     | What It Helps Understand |
+| ----------------- | ------------------------ |
+| Dataset plots     | Data distribution        |
+| Feature plots     | Feature relationships    |
+| Accuracy graph    | Model learning           |
+| Loss graph        | Training error           |
+| Confusion Matrix  | Class-wise performance   |
+| Sample Images     | Dataset characteristics  |
+| Prediction Images | Model predictions        |
 
 ---
 
-# 🔄 Complete Learning Pipeline
+# 🔄 Complete Deep Learning Pipeline
 
 ```mermaid
-graph TD
-    A[Data Collection] --> B[Data Preprocessing]
-    B --> C[Exploratory Data Analysis]
-    C --> D[Data Visualization]
-    D --> E[Feature / Image Preparation]
-    E --> F[Model Architecture]
-    F --> G[Training]
-    G --> H[Validation]
-    H --> I[Prediction]
-    I --> J[Evaluation]
-    J --> K[Confusion Matrix]
-    J --> L[Accuracy & Loss]
-    J --> M[Final Analysis]
+flowchart TD
+
+A["📥 Data Collection"]
+--> B["🧹 Data Preprocessing"]
+
+B --> C["🔎 Exploratory Data Analysis"]
+
+C --> D["📊 Data Visualization"]
+
+D --> E["🧠 Model Architecture"]
+
+E --> F["🏋️ Model Training"]
+
+F --> G["📉 Loss Calculation"]
+
+G --> H["🔁 Backpropagation"]
+
+H --> I["⚙️ Weight Update"]
+
+I --> J["✅ Validation"]
+
+J --> K["🔮 Prediction"]
+
+K --> L["📊 Evaluation"]
+
+L --> M["📈 Visualization"]
+
+M --> N["📝 Result Analysis"]
 ```
 
 ---
 
-# 📚 Key Concepts Learned
+# 🛠️ Technologies & Tools
 
-Through these assignments, the following Deep Learning concepts are explored:
+| Technology              | Usage                               |
+| ----------------------- | ----------------------------------- |
+| 🐍 **Python**           | Programming and implementation      |
+| 📓 **Jupyter Notebook** | Interactive development             |
+| 🔢 **NumPy**            | Numerical operations                |
+| 🐼 **Pandas**           | Data manipulation                   |
+| 📊 **Matplotlib**       | Visualization                       |
+| 🤖 **Scikit-learn**     | Preprocessing and evaluation        |
+| 🧠 **TensorFlow**       | Deep Learning                       |
+| 🔥 **Keras**            | Neural Network / CNN implementation |
 
-### Fundamentals
+---
 
-* Deep Learning
-* Neural Networks
-* Artificial Neurons
-* Weights and Biases
-* Activation Functions
+# 🧩 Core Concepts Covered
 
-### Data Preparation
-
-* Data preprocessing
-* Feature selection
-* Normalization
-* Train-test split
-
-### Model Training
-
-* Forward propagation
-* Loss calculation
-* Backpropagation
-* Weight optimization
-* Epochs
-* Batch training
-
-### Neural Networks
-
-* Input layer
-* Hidden layers
-* Output layer
-* Dense layers
-* Activation functions
-
-### Computer Vision
-
-* Image preprocessing
-* Convolution
-* Feature maps
-* Pooling
-* Flattening
-* CNN architecture
-* Image classification
-
-### Model Evaluation
-
-* Accuracy
-* Loss
-* Predictions
-* Confusion matrix
-* Training/validation performance
-
-### Visualization
-
-* Dataset visualization
-* Training accuracy
-* Validation accuracy
-* Training loss
-* Validation loss
-* Prediction visualization
-* Confusion matrix
+```mermaid
+mindmap
+  root((Deep Learning))
+    Fundamentals
+      AI
+      Machine Learning
+      Deep Learning
+      Neural Networks
+    Data
+      Preprocessing
+      Feature Selection
+      Normalization
+      Train Test Split
+    Neural Networks
+      Input Layer
+      Hidden Layers
+      Output Layer
+      Weights
+      Bias
+      Activation Functions
+    Training
+      Forward Propagation
+      Loss
+      Backpropagation
+      Optimization
+      Epochs
+    Computer Vision
+      Images
+      Convolution
+      Feature Maps
+      Pooling
+      Flattening
+      CNN
+    Evaluation
+      Accuracy
+      Loss
+      Predictions
+      Confusion Matrix
+      Validation
+    Visualization
+      Data Distribution
+      Training Curves
+      Predictions
+      Confusion Matrix
+```
 
 ---
 
 # 🎓 Learning Outcomes
 
-After completing these assignments, I gained practical understanding of:
+After completing these practical assignments, I developed an understanding of:
 
-* How Deep Learning models process data.
-* How neural networks learn from training data.
-* How preprocessing affects model performance.
-* How to build and train neural network models.
-* How CNNs extract features from images.
-* How image classification works.
-* How to evaluate a trained model.
-* How to visualize training performance.
-* How to analyze classification errors using a confusion matrix.
+* Fundamentals of Deep Learning.
+* Neural network architecture and working.
+* Data preprocessing for Machine Learning and Deep Learning.
+* Training and validation of neural networks.
+* Forward propagation and backpropagation.
+* Activation functions and loss functions.
+* Model prediction and evaluation.
+* Visualization of training performance.
+* CNN architecture and image classification.
+* Analysis of model predictions using a confusion matrix.
 
 ---
 
-# 💻 Installation
+# 🚀 Installation & Setup
 
-Clone the repository:
+## 1. Clone Repository
 
 ```bash
 git clone https://github.com/rushirathod22/Deep_Learning_Assignment.git
 ```
 
-Move into the project:
+## 2. Navigate to Repository
 
 ```bash
 cd Deep_Learning_Assignment
 ```
 
-Install the required Python libraries:
+## 3. Install Dependencies
 
 ```bash
 pip install numpy pandas matplotlib scikit-learn tensorflow jupyter
 ```
 
-Start Jupyter Notebook:
+## 4. Launch Jupyter Notebook
 
 ```bash
 jupyter notebook
 ```
 
-Then open the required `.ipynb` file.
+Open the required laboratory folder and execute the notebook cells sequentially.
 
 ---
 
-# 🚀 How to Use
+# 📋 Practical Summary
 
-1. Clone the repository.
-2. Install the required dependencies.
-3. Open the required laboratory folder.
-4. Launch the Jupyter Notebook.
-5. Run the cells sequentially.
-6. Observe the generated visualizations.
-7. Analyze model performance.
-8. Compare predictions with actual results.
+| Laboratory | Area            | Main Learning                        |
+| ---------- | --------------- | ------------------------------------ |
+| **LAB 1**  | Fundamentals    | Understanding Deep Learning workflow |
+| **LAB 2**  | Classification  | Neural Network based classification  |
+| **LAB 3**  | Neural Networks | Model architecture and training      |
+| **LAB 6**  | Computer Vision | CNN based image classification       |
 
 ---
 
-# 📌 Assignment Summary
+# 📌 Academic Purpose
 
-```mermaid
-mindmap
-  root((Deep Learning))
-    LAB 1
-      Fundamentals
-      Data
-      Visualization
-    LAB 2
-      Heart Disease
-      Preprocessing
-      Classification
-      Neural Network
-      Evaluation
-    LAB 3
-      Neural Network
-      Model Training
-      Prediction
-      Evaluation
-    LAB 6
-      Computer Vision
-      CNN
-      Convolution
-      Pooling
-      Image Classification
-      Training History
-      Confusion Matrix
-      Predictions
-```
+This repository is maintained as part of the **Deep Learning laboratory coursework** for academic learning and practical implementation.
+
+The repository combines:
+
+**Theory → Implementation → Training → Evaluation → Visualization → Analysis**
 
 ---
 
-# 👨‍💻 Author
+# 👨‍💻 Student
 
-**Rushi Rathod**
+### Rushi Rathod
 
-AI Engineering Student
+**TY Artificial Intelligence Engineering**
 
 GitHub:
 https://github.com/rushirathod22
 
 ---
 
-# ⭐ Repository
+<p align="center">
 
-If you find this repository useful for learning Deep Learning concepts, consider giving it a ⭐.
+### 🧠 Learn • Implement • Visualize • Analyze
 
----
+⭐ Thank you for visiting this repository!
 
-## 📜 Academic Note
-
-This repository is maintained for **academic, practical learning, and educational purposes**. The assignments demonstrate the implementation and experimentation of Deep Learning concepts using Python and related libraries.
+</p>
