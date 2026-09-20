@@ -64,6 +64,14 @@ Deep_Learning_Assignment/
 │   ├── 📓 Model.ipynb
 │   └── 📄 34_Rushikesh_Rathod_Lab_3.docx
 │
+├── 📁 LAB_4/
+│   ├── 📓 Assignment_4_LSTM_TimeSeries.ipynb
+│   └── 📄 Assignment_4_Document.docx
+│
+├── 📁 LAB_5/
+│   ├── 📓 Assignment_5_Sequence_Classification.ipynb
+│   └── 📄 Assignment_5_Document.docx
+│
 ├── 📁 LAB_6/
 │   ├── 📓 Lab4_CNN_Apple_Disease.ipynb
 │   ├── 🐍 lab4_cnn_apple_disease.py
@@ -71,6 +79,10 @@ Deep_Learning_Assignment/
 │   ├── 📈 training_history.png
 │   ├── 📊 confusion_matrix.png
 │   └── 🔍 predictions.png
+│
+├── 📁 LAB_7/
+│   ├── 📓 Assignment_7_Transfer_Learning.ipynb
+│   └── 📄 Assignment_7_Document.docx
 │
 ├── .gitignore
 └── README.md
@@ -254,6 +266,40 @@ The process demonstrates how a neural network gradually updates its parameters t
 
 ---
 
+# ⏱️ LAB 4 | LSTM Time Series Forecasting
+
+### Focus
+
+This laboratory implements a Long Short-Term Memory (LSTM) network for learning patterns in sequential and time-series data.
+
+### Concepts Used
+
+* Time-series data preparation
+* Sequence generation
+* Data normalization
+* LSTM architecture
+* Model training and validation
+* Forecasting and prediction visualization
+
+---
+
+# 📝 LAB 5 | Sequence Classification
+
+### Focus
+
+This laboratory applies recurrent neural networks to classify sequential data based on patterns learned from input sequences.
+
+### Concepts Used
+
+* Sequence preprocessing
+* Token or feature representation
+* Recurrent neural network layers
+* Sequence classification
+* Training and validation
+* Accuracy and loss evaluation
+
+---
+
 # 🍎 LAB 6 | CNN Based Apple Disease Classification
 
 ### Focus
@@ -418,6 +464,29 @@ Sample images are included to understand the image data used by the CNN.
 
 ---
 
+# 🔁 LAB 7 | Transfer Learning
+
+### Focus
+
+This laboratory uses pre-trained convolutional models for image classification on a CIFAR-10 subset.
+
+### Models Compared
+
+* VGG16
+* ResNet50
+* EfficientNetB0
+
+### Concepts Used
+
+* Pre-trained ImageNet models
+* Feature extraction with frozen base layers
+* Transfer learning
+* Image preprocessing
+* Model evaluation
+* Accuracy comparison and visualization
+
+---
+
 # 📊 Role of Visualization
 
 Visualization is an important part of these assignments because numerical metrics alone do not always provide enough understanding.
@@ -547,6 +616,9 @@ After completing these practical assignments, I developed an understanding of:
 * Model prediction and evaluation.
 * Visualization of training performance.
 * CNN architecture and image classification.
+* LSTM-based time-series forecasting.
+* Sequence classification using recurrent models.
+* Transfer learning with pre-trained image models.
 * Analysis of model predictions using a confusion matrix.
 
 ---
@@ -588,7 +660,10 @@ Open the required laboratory folder and execute the notebook cells sequentially.
 | **LAB 1**  | Fundamentals    | Understanding Deep Learning workflow |
 | **LAB 2**  | Classification  | Neural Network based classification  |
 | **LAB 3**  | Neural Networks | Model architecture and training      |
+| **LAB 4**  | Time Series     | LSTM-based sequence forecasting     |
+| **LAB 5**  | Sequences       | Recurrent sequence classification   |
 | **LAB 6**  | Computer Vision | CNN based image classification       |
+| **LAB 7**  | Transfer Learning | Pre-trained model comparison       |
 
 ---
 
