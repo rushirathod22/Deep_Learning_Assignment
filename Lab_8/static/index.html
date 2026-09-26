@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BERT Sentiment AI Studio | Lab 8 Deep Learning</title>
+  <meta name="description" content="Interactive Web Frontend for Pretrained BERT Sentiment Analysis and Text Classification. Deep Learning Lab Assignment 8.">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="background-glows">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+  </div>
+
+  <header class="app-header">
+    <div class="header-left">
+      <div class="logo-badge">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+        <span>BERT-v1.0</span>
+      </div>
+      <div>
+        <h1 class="app-title">BERT Sentiment Studio</h1>
+        <p class="app-subtitle">Deep Learning Lab 8 &bull; Transformer Sequence Classification</p>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <div class="device-pill" id="devicePill">
+        <span class="status-dot"></span>
+        <span id="deviceText">NVIDIA RTX 2050 (CUDA)</span>
+      </div>
+      <div class="nav-tabs">
+        <button class="nav-tab active" id="tabClassifier" onclick="switchTab('classifier')">Live Classifier</button>
+        <button class="nav-tab" id="tabMetrics" onclick="switchTab('metrics')">Model Diagnostics</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-container">
+    <!-- View 1: Live Classifier -->
+    <section class="tab-content active" id="viewClassifier">
+      <div class="grid-layout">
+        <!-- Left Panel: Input & Controls -->
+        <div class="card glass-card input-panel">
+          <div class="card-header">
+            <div class="card-title-group">
+              <span class="icon-chip">✍️</span>
+              <h2 class="card-title">Input Text for Sentiment Inference</h2>
+            </div>
+            <span class="badge" id="charCounter">0 characters</span>
+          </div>
+
+          <div class="card-body">
+            <div class="presets-section">
+              <span class="presets-label">Sample Presets:</span>
+              <div class="preset-chips">
+                <button class="preset-chip" onclick="loadSample(0)">Masterpiece Review</button>
+                <button class="preset-chip" onclick="loadSample(1)">Critical Flop</button>
+                <button class="preset-chip" onclick="loadSample(2)">Subtle Negation</button>
+                <button class="preset-chip" onclick="loadSample(3)">Ambiguous Twist</button>
+              </div>
+            </div>
+
+            <div class="textarea-wrapper">
+              <textarea 
+                id="reviewInput" 
+                placeholder="Type or paste any review, feedback, or text to analyze sentiment with BERT... (Press Ctrl + Enter to classify)"
+                rows="5"
+                oninput="handleInput(this)"
+              ></textarea>
+              <button class="clear-btn" id="clearBtn" onclick="clearInput()" title="Clear text">&times;</button>
+            </div>
+
+            <div class="action-bar">
+              <div class="shortcut-hint">
+                <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to analyze
+              </div>
+              <button class="primary-btn" id="analyzeBtn" onclick="analyzeSentiment()">
+                <span class="btn-spinner" id="btnSpinner"></span>
+                <span class="btn-text" id="btnText">Analyze with BERT</span>
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Panel: Prediction Results -->
+        <div class="card glass-card result-panel">
+          <div class="card-header">
+            <div class="card-title-group">
+              <span class="icon-chip">⚡</span>
+              <h2 class="card-title">BERT Classification Output</h2>
+            </div>
+            <span class="badge latency-badge" id="latencyBadge">Ready</span>
+          </div>
+
+          <div class="card-body" id="resultContainer">
+            <!-- Empty state placeholder -->
+            <div class="empty-state" id="emptyState">
+              <div class="empty-icon">🧠</div>
+              <h3>Awaiting Input</h3>
+              <p>Type a sentence or select a sample preset above to see BERT's bidirectional attention in action.</p>
+            </div>
+
+            <!-- Active Output View -->
+            <div class="result-details hidden" id="resultDetails">
+              <!-- Sentiment Hero Banner -->
+              <div class="sentiment-banner" id="sentimentBanner">
+                <div class="sentiment-icon-box" id="sentimentIconBox">
+                  <span id="sentimentEmoji">😊</span>
+                </div>
+                <div class="sentiment-meta">
+                  <span class="sentiment-tag" id="sentimentTag">POSITIVE</span>
+                  <div class="sentiment-confidence">
+                    Confidence: <span class="highlight-number" id="confidenceValue">0.0%</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Probability Distribution Bars -->
+              <div class="prob-section">
+                <h4 class="section-label">Softmax Probability Distribution</h4>
+                
+                <div class="prob-row">
+                  <div class="prob-label-row">
+                    <span class="prob-name positive-text">Positive (1)</span>
+                    <span class="prob-value" id="posProbText">0.0%</span>
+                  </div>
+                  <div class="progress-bar-bg">
+                    <div class="progress-fill positive-fill" id="posProgressBar" style="width: 0%"></div>
+                  </div>
+                </div>
+
+                <div class="prob-row">
+                  <div class="prob-label-row">
+                    <span class="prob-name negative-text">Negative (0)</span>
+                    <span class="prob-value" id="negProbText">0.0%</span>
+                  </div>
+                  <div class="progress-bar-bg">
+                    <div class="progress-fill negative-fill" id="negProgressBar" style="width: 0%"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Subword Token Inspector -->
+              <div class="token-inspector">
+                <div class="token-inspector-header">
+                  <h4 class="section-label">WordPiece Subword Token Breakdown</h4>
+                  <span class="token-count" id="tokenCountBadge">0 tokens</span>
+                </div>
+                <p class="token-hint">Showing special tokens <code>[CLS]</code>, <code>[SEP]</code> and subword divisions.</p>
+                <div class="token-pill-container" id="tokenPillContainer"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Row: Recent Analysis History & Architecture Card -->
+      <div class="bottom-grid">
+        <!-- History Card -->
+        <div class="card glass-card history-card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <span class="icon-chip">📜</span>
+              <h3 class="card-title">Recent Predictions History</h3>
+            </div>
+            <button class="clear-history-btn" onclick="clearHistory()">Clear History</button>
+          </div>
+          <div class="card-body">
+            <div class="history-list" id="historyList">
+              <div class="empty-history">No predictions run yet in this session.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Model Specs Card -->
+        <div class="card glass-card specs-card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <span class="icon-chip">⚙️</span>
+              <h3 class="card-title">Model Specifications</h3>
+            </div>
+            <span class="badge info-badge">bert-base-uncased</span>
+          </div>
+          <div class="card-body">
+            <div class="spec-grid">
+              <div class="spec-item">
+                <span class="spec-label">Parameters</span>
+                <span class="spec-val">109,483,778 (~110M)</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Hidden Dimension</span>
+                <span class="spec-val">768</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Attention Heads</span>
+                <span class="spec-val">12</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Encoder Layers</span>
+                <span class="spec-val">12 Transformer Blocks</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Vocabulary</span>
+                <span class="spec-val">30,522 WordPiece Tokens</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Classification Head</span>
+                <span class="spec-val">Dropout (0.1) &rarr; Linear (768 &rarr; 2)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- View 2: Model Diagnostics & Evaluation Metrics -->
+    <section class="tab-content" id="viewMetrics">
+      <div class="metrics-grid">
+        <!-- Summary Cards -->
+        <div class="stat-card glass-card">
+          <div class="stat-icon">🎯</div>
+          <div class="stat-content">
+            <span class="stat-title">Test Accuracy</span>
+            <span class="stat-value">90.00%</span>
+            <span class="stat-subtitle">On 30 unseen hold-out samples</span>
+          </div>
+        </div>
+
+        <div class="stat-card glass-card">
+          <div class="stat-icon">⚖️</div>
+          <div class="stat-content">
+            <span class="stat-title">Weighted F1-Score</span>
+            <span class="stat-value">89.99%</span>
+            <span class="stat-subtitle">Harmonic mean of precision & recall</span>
+          </div>
+        </div>
+
+        <div class="stat-card glass-card">
+          <div class="stat-icon">🔍</div>
+          <div class="stat-content">
+            <span class="stat-title">Precision / Recall</span>
+            <span class="stat-value">90.18% / 90.00%</span>
+            <span class="stat-subtitle">Neg: 92.9% P / Pos: 87.5% P</span>
+          </div>
+        </div>
+
+        <div class="stat-card glass-card">
+          <div class="stat-icon">⏱️</div>
+          <div class="stat-content">
+            <span class="stat-title">Training Time</span>
+            <span class="stat-value">~15 sec</span>
+            <span class="stat-subtitle">3 Epochs on RTX 2050 GPU</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Plots Section -->
+      <div class="plots-grid">
+        <div class="card glass-card plot-card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <span class="icon-chip">📊</span>
+              <h3 class="card-title">Confusion Matrix</h3>
+            </div>
+            <span class="badge">Hold-Out Test Set</span>
+          </div>
+          <div class="card-body plot-body">
+            <img src="/evaluation_plots/confusion_matrix.png" alt="Confusion Matrix" class="plot-img" onerror="this.alt='Confusion matrix image generated in Lab_8/evaluation_plots/'">
+            <div class="plot-caption">
+              Matrix highlights 13 True Negatives (86.7% recall) and 14 True Positives (93.3% recall) with minimal cross-class errors.
+            </div>
+          </div>
+        </div>
+
+        <div class="card glass-card plot-card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <span class="icon-chip">📈</span>
+              <h3 class="card-title">Training & Validation Convergence Curves</h3>
+            </div>
+            <span class="badge">3 Epochs (AdamW)</span>
+          </div>
+          <div class="card-body plot-body">
+            <img src="/evaluation_plots/training_curves.png" alt="Training Convergence Curves" class="plot-img" onerror="this.alt='Training curves image generated in Lab_8/evaluation_plots/'">
+            <div class="plot-caption">
+              Cross-Entropy loss reduced smoothly from 0.6683 down to 0.4656, with validation accuracy achieving 93.33% by Epoch 3.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>B.Tech CS(AI) Engineering &bull; Deep Learning Lab Assignment 8 &bull; Powered by PyTorch &amp; Hugging Face Transformers</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Large model binaries (exceeds GitHub 100MB limit)
+saved_model/*.safetensors
+saved_model/*.bin
+*.safetensors
+*.bin
+*.pt
+*.pth
+
+# Jupyter Notebook checkpoints & IDE cache
+.ipynb_checkpoints/
+.kilo/
