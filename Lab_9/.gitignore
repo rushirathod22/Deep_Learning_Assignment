@@ -1,0 +1,22 @@
+# Python & Checkpoints
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+.venv*/
+
+# Word temp files
+~$*.docx
+~$*
+
+# Datasets (downloaded via torchvision on demand)
+data/
+*.tar.gz
+
+# Checkpoints
+*.pt
+*.pth
+*.bin
+*.safetensors

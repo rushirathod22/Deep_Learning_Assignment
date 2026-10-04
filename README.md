@@ -84,6 +84,16 @@ Deep_Learning_Assignment/
 │   ├── 📓 Assignment_7_Transfer_Learning.ipynb
 │   └── 📄 Assignment_7_Document.docx
 │
+├── 📁 Lab_8/
+│   ├── 📓 Assignment_8_BERT_Sentiment_Analysis.ipynb
+│   ├── 📄 Assignment_8_DL.docx
+│   └── 📄 README.md
+│
+├── 📁 Lab_9/
+│   ├── 📓 ViT.ipynb
+│   ├── 📄 Assignment_9_ViT.docx
+│   └── 📄 README.md
+│
 ├── .gitignore
 └── README.md
 ```
@@ -487,6 +497,55 @@ This laboratory uses pre-trained convolutional models for image classification o
 
 ---
 
+# 📝 LAB 8 | Transformer Models for NLP (BERT)
+
+### Focus
+
+Implementation and fine-tuning of a pretrained **BERT (Bidirectional Encoder Representations from Transformers)** model for sequence sentiment classification on text data.
+
+### Concepts Used
+
+* Transformer Encoder architecture & Bidirectional Self-Attention
+* WordPiece subword tokenization, attention masks, and `[CLS]`, `[SEP]` tokens
+* Fine-tuning `bert-base-uncased` with sequence classification heads
+* AdamW optimizer with decoupled weight decay & linear warmup learning rate schedules
+* Test evaluation using Accuracy, Precision, Recall, F1-Score, and Confusion Matrix
+
+---
+
+# 👁️‍🗨️ LAB 9 | Vision Transformers (ViT) vs. CNNs
+
+### Focus
+
+Comprehensive image classification benchmarking on the **CIFAR-10** dataset comparing a custom **Convolutional Neural Network (CNN)** against a fine-tuned Pretrained **Vision Transformer (ViT)** (`google/vit-base-patch16-224`).
+
+### Models Compared
+
+* **Baseline CNN**: 3-stage convolutional network with $3\times3$ kernels, ReLU activations, Max-Pooling downsampling, Dropout regularization, and dense classification layers.
+* **Pretrained ViT**: ImageNet-pretrained `google/vit-base-patch16-224` (12 encoder layers, 12 attention heads, hidden dimension 768) fine-tuned with a 10-class linear classification head.
+
+### Concepts Used
+
+* Image patch extraction ($16 \times 16$) & linear projection to latent dimension $D=768$
+* Learnable 1D position embeddings & prepended `[CLS]` classification token
+* Multi-Head Self-Attention (MHSA) enabling an immediate global receptive field
+* Resolution adaptation via bicubic resizing ($32 \times 32 \to 224 \times 224$)
+* Inductive bias comparison (local convolutional equivariance vs. global attention context)
+* Comprehensive evaluation: Accuracy, Precision, Recall, F1-Score, and Training Latency
+
+### Quantitative Results on CIFAR-10
+
+| Metric | Baseline CNN | Pretrained ViT (`vit-base-patch16-224`) | Performance Delta |
+| :--- | :---: | :---: | :---: |
+| **Accuracy** | 76.49% | **98.22%** | **+21.73%** |
+| **Precision** | 76.64% | **98.23%** | **+21.59%** |
+| **Recall** | 76.49% | **98.22%** | **+21.73%** |
+| **F1 Score** | 76.33% | **98.22%** | **+21.89%** |
+| **Training Time** | 177.39 s (~2.95 min) | 8487.36 s (~2.36 hrs) | $\sim 47.8 \times$ compute |
+
+---
+
+
 # 📊 Role of Visualization
 
 Visualization is an important part of these assignments because numerical metrics alone do not always provide enough understanding.
@@ -549,6 +608,8 @@ M --> N["📝 Result Analysis"]
 | 📊 **Matplotlib**       | Visualization                       |
 | 🤖 **Scikit-learn**     | Preprocessing and evaluation        |
 | 🧠 **TensorFlow**       | Deep Learning                       |
+| 🔥 **PyTorch**          | Deep Learning & Vision Transformers |
+| 🤗 **Transformers**     | Pretrained ViT & BERT models        |
 | 🔥 **Keras**            | Neural Network / CNN implementation |
 
 ---
@@ -588,10 +649,22 @@ mindmap
       Pooling
       Flattening
       CNN
+      Transfer Learning
+    Transformers & ViT
+      Self-Attention
+      Multi-Head Attention
+      Image Patches
+      Linear Projections
+      Position Embeddings
+      CLS Token
+      Transformer Encoder
+      Pretrained ViT
+      Fine-Tuning
+      ViT vs CNN
     Evaluation
       Accuracy
       Loss
-      Predictions
+      Precision Recall F1
       Confusion Matrix
       Validation
     Visualization
@@ -619,7 +692,10 @@ After completing these practical assignments, I developed an understanding of:
 * LSTM-based time-series forecasting.
 * Sequence classification using recurrent models.
 * Transfer learning with pre-trained image models.
-* Analysis of model predictions using a confusion matrix.
+* Transformer architectures and Bidirectional Self-Attention using pretrained BERT.
+* Vision Transformer (ViT) architecture, patch embedding, and self-attention in computer vision.
+* Fine-tuning pretrained Vision Transformers (`google/vit-base-patch16-224`) vs. training CNNs from scratch.
+* Analysis of model predictions using confusion matrices and evaluation metrics.
 
 ---
 
@@ -640,7 +716,7 @@ cd Deep_Learning_Assignment
 ## 3. Install Dependencies
 
 ```bash
-pip install numpy pandas matplotlib scikit-learn tensorflow jupyter
+pip install numpy pandas matplotlib scikit-learn tensorflow torch torchvision transformers jupyter
 ```
 
 ## 4. Launch Jupyter Notebook
@@ -664,6 +740,8 @@ Open the required laboratory folder and execute the notebook cells sequentially.
 | **LAB 5**  | Sequences       | Recurrent sequence classification   |
 | **LAB 6**  | Computer Vision | CNN based image classification       |
 | **LAB 7**  | Transfer Learning | Pre-trained model comparison       |
+| **LAB 8**  | NLP & Transformers | Pretrained BERT Sentiment Analysis  |
+| **LAB 9**  | Vision Transformers | Pretrained ViT vs CNN on CIFAR-10    |
 
 ---
 
